@@ -3,14 +3,11 @@ package c.zachgames.rpigrouber;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.content.Intent;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity
+public class Login extends AppCompatActivity
 {
 
     private EditText Email;
@@ -46,7 +43,7 @@ public class MainActivity extends AppCompatActivity
     {
         if( (userEmail.equals("Admin")) && (userPassword.equals("yeet")) )
         {
-            Intent intent = new Intent(MainActivity.this, SecondActivity.class);        //Go to some second activity
+            Intent intent = new Intent(c.zachgames.rpigrouber.Login.this, SecondActivity.class);        //Go to some second activity
             startActivity(intent);      //Move to next page
         }
         else        //IF password is incorrect
