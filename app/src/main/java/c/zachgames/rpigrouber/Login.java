@@ -20,7 +20,7 @@ public class Login extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.Login);
+        setContentView(R.layout.login);
 
         Email = (EditText)findViewById(R.id.etEmail);
         Password = (EditText)findViewById(R.id.etPassword);
@@ -43,7 +43,7 @@ public class Login extends AppCompatActivity
     {
         if( (userEmail.equals("Admin")) && (userPassword.equals("yeet")) )
         {
-            Intent intent = new Intent(c.zachgames.rpigrouber.Login.this, SecondActivity.class);        //Go to some second activity
+            Intent intent = new Intent(c.zachgames.rpigrouber.Login.this, Hub.class);        //Go to some second activity
             startActivity(intent);      //Move to next page
         }
         else        //IF password is incorrect
