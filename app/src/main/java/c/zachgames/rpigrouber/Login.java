@@ -14,6 +14,7 @@ public class Login extends AppCompatActivity
     private EditText Password;
     private Button Login;
     private int incorrect = 5;
+    private Button Register;
     //private TextView title;
 
     @Override
@@ -25,16 +26,28 @@ public class Login extends AppCompatActivity
         Email = (EditText)findViewById(R.id.etEmail);
         Password = (EditText)findViewById(R.id.etPassword);
         Login = (Button)findViewById(R.id.btnLogin);
+        Register = (Button)findViewById(R.id.btnRegister);
         //title.setText("RPI GroUber");
 
 
-
+        //Login Button
         Login.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
                 //Converts user input email and password into strings, then checks if user and password are correct
                 validate(Email.getText().toString(), Password.getText().toString());
+            }
+        });
+
+        //Register Button
+        Register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //goes to the registration page
+                Intent intent = new Intent(c.zachgames.rpigrouber.Login.this, Registration.class);
+                startActivity(intent);
+
             }
         });
     }
