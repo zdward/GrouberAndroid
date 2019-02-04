@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools = "http://schemas.android.com/tools"
+    tools:showIn = "navigation_view" >
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id = "@+id/nav_editProfile"
+            android:enabled="true"
+            android:icon = "@drawable/ic_editprofile"
+            android:title = "Edit Profile" />
+
+        <item
+            android:id="@+id/nav_manageNotifications"
+            android:enabled="true"
+            android:icon="@drawable/ic_managenotifications_24dp"
+            android:title="Manage Notificaitons" />
+
+        <item
+            android:id="@+id/nav_privacysettings"
+            android:enabled="true"
+            android:icon="@drawable/ic_privacysettings"
+            android:title="Privacy Settings" />
+
+        <item
+            android:id="@+id/nav_securitysettings"
+            android:enabled="true"
+            android:icon="@drawable/ic_securitysettings"
+            android:title="Security Settings" />
+
+        <item
+            android:id="@+id/nav_addfriends"
+            android:enabled="true"
+            android:icon="@drawable/ic_person_add_black_24dp"
+            android:title="Add Friends" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:enabled="true"
+            android:icon="@drawable/ic_logout"
+            android:title="Log Out" />
+
+
+
+    </group>
+
+</menu>
