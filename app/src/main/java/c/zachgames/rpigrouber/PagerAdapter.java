@@ -3,7 +3,7 @@ package c.zachgames.rpigrouber;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-
+//https://www.youtube.com/watch?v=zcnT-3F-9JA&t=90s Used this
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int number_tabs = 3;
 
@@ -33,6 +33,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return this.number_tabs;
     }
 }
