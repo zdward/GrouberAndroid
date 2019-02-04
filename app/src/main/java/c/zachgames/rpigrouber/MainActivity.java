@@ -1,30 +1,24 @@
 package c.zachgames.rpigrouber;
 
+import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-
-public class Hub extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
-{
-    private ViewPager viewPager;
-    private SlideAdapter myadapter;
+public class MainActivity extends AppCompatActivity implements Hub_Fragment.OnFragmentInteractionListener,Post_Fragment.OnFragmentInteractionListener,Profile_Fragment.OnFragmentInteractionListener, NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawer;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hub);
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        myadapter = new SlideAdapter(this);
-        viewPager.setAdapter(myadapter);
+        setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -38,12 +32,37 @@ public class Hub extends AppCompatActivity implements NavigationView.OnNavigatio
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
+        tabLayout.addTab(tabLayout.newTab().setText("Hub"));
+        tabLayout.addTab(tabLayout.newTab().setText("Post"));
+        tabLayout.addTab(tabLayout.newTab().setText("Profile"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
+        final ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
+        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+        viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item)
-    {
+    {/*
         switch(item.getItemId())
         {
             case R.id.nav_editProfile:
@@ -64,6 +83,7 @@ public class Hub extends AppCompatActivity implements NavigationView.OnNavigatio
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
+        */
         return true;
 
     }
@@ -79,4 +99,9 @@ public class Hub extends AppCompatActivity implements NavigationView.OnNavigatio
             super.onBackPressed();
         }
     }
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
 }
