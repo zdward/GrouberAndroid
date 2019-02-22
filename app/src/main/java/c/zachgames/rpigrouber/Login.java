@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity
     {
         if( (userEmail.equals("Admin")) && (userPassword.equals("yeet")) )
         {
-            Intent intent = new Intent(c.zachgames.rpigrouber.Login.this, Hub.class);        //Go to some second activity
+            Intent intent = new Intent(c.zachgames.rpigrouber.Login.this, MainActivity.class);        //Go to some second activity
             startActivity(intent);      //Move to next page
         }
         else        //IF password is incorrect
