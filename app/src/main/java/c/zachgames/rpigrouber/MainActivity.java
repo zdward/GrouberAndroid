@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements Hub_Fragment.OnFr
             }
         });
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
