@@ -30,7 +30,7 @@ public class Registration extends AppCompatActivity{
             public void onClick(View v) {
                 //goes to the registration page
                 if(password.getText().toString().equals(con_password.getText().toString())) {
-                    Intent intent2 = new Intent(c.zachgames.rpigrouber.Registration.this, Login.class);
+                    Intent intent2 = new Intent(c.zachgames.rpigrouber.Registration.this, EmailConfirmation.class);
                     startActivity(intent2);
                 }
             }
