@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "37500106172",
+    "project_id": "rpi-groupride",
+    "storage_bucket": "rpi-groupride.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37500106172:android:56223139a8eaafc6",
+        "android_client_info": {
+          "package_name": "c.zachgames.rpigrouber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37500106172-r5d2fimuuotbr36u16ti9k8j5huq3s7f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "c.zachgames.rpigrouber",
+            "certificate_hash": "dbdf7d8f1b2db0941c7f7069a2a3c3b812591abe"
+          }
+        },
+        {
+          "client_id": "37500106172-qma8ip32mkhg6ll15hugbi36lf559gsh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmFw5Stx5OzcY1DcCwRtfX3sBQCNWFckA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37500106172-qma8ip32mkhg6ll15hugbi36lf559gsh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
