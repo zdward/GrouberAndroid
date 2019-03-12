@@ -1,5 +1,6 @@
 package c.zachgames.rpigrouber;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -74,6 +75,10 @@ public class MainActivity extends AppCompatActivity implements Hub_Fragment.OnFr
     {
         switch(item.getItemId())
         {
+            case R.id.nav_hub:
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);        //Go to some second activity
+                startActivity(intent);      //Move to next page
+                break;
             case R.id.nav_editProfile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container, new EditProfileFragment()).commit();
                 break;
@@ -89,6 +94,10 @@ public class MainActivity extends AppCompatActivity implements Hub_Fragment.OnFr
                 break;
             case R.id.nav_addfriends:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container, new AddFriendsFragment()).commit();
+                break;
+            case R.id.nav_logout:
+                intent = new Intent(MainActivity.this, Login.class);        //Go to some second activity
+                startActivity(intent);      //Move to next page
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
