@@ -1,94 +1,120 @@
 package c.zachgames.rpigrouber;
 
+import android.support.v4.app.ListFragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Hub_Fragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Hub_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class Hub_Fragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
-
-    public Hub_Fragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Hub_Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Hub_Fragment newInstance(String param1, String param2) {
-        Hub_Fragment fragment = new Hub_Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+public class Hub_Fragment extends ListFragment implements SearchView.OnQueryTextListener, MenuItem.OnActionExpandListener{
+    List<String> posts;
+    private ArrayAdapter<String> adapter;
+    private Context mContext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
+        mContext = getActivity();
+        setHasOptionsMenu(true);
+        populateList();
+    }
+
+    @Override
+    public void onListItemClick(ListView listView, View view, int position, long id) {
+        String item = (String) listView.getAdapter().getItem(position);
+        if (getActivity() instanceof OnItem1SelectedListener) {
+            ((OnItem1SelectedListener) getActivity()).OnItem1SelectedListener(item);
         }
+        getFragmentManager().popBackStack();
+    }
+
+    public interface OnItem1SelectedListener {
+        void OnItem1SelectedListener(String item);
+    }
+
+    private void populateList() {
+        posts = new ArrayList<>();
+
+        posts.add("Kevin's Post");
+        posts.add("Dennis's Post");
+        posts.add("Zach's Post");
+        posts.add("John's Post");
+        posts.add("Alex's Post");
+        posts.add("Alexis's Post");
+        posts.add("Paul's Post");
+        posts.add("Frauk's Post");
+        posts.add("Karen's Post");
+
+        adapter = new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, posts);
+        setListAdapter(adapter);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hub_, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_hub_, container, false);
+        ListView list = (ListView) view.findViewById(R.id.post_list);
+        TextView emptyTextView = (TextView) view.findViewById(R.id.empty_list);
+        list.setEmptyView(emptyTextView);
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+        return view;
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+    }
+
+    @Override
+    public boolean onMenuItemActionExpand(MenuItem menuItem) {
+        return true;
+    }
+
+    @Override
+    public boolean onMenuItemActionCollapse(MenuItem menuItem) {
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        if (newText == null || newText.trim().isEmpty()) {
+            resetSearch();
+            return false;
+        }
+
+        List<String> filteredValues = new ArrayList<String>(posts);
+        for (String value : posts) {
+            if (!value.toLowerCase().contains(newText.toLowerCase())) {
+                filteredValues.remove(value);
+            }
+        }
+
+        adapter = new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, filteredValues);
+        setListAdapter(adapter);
+
+        return false;
+    }
+
+    public void resetSearch() {
+        adapter = new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, posts);
+        setListAdapter(adapter);
     }
 
     /**
