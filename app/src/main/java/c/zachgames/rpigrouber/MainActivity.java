@@ -76,8 +76,8 @@ public class MainActivity extends AppCompatActivity implements Hub_Fragment.OnFr
         switch(item.getItemId())
         {
             case R.id.nav_hub:
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);        //Go to some second activity
-                startActivity(intent);      //Move to next page
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_editProfile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container, new EditProfileFragment()).commit();
@@ -96,8 +96,8 @@ public class MainActivity extends AppCompatActivity implements Hub_Fragment.OnFr
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container, new AddFriendsFragment()).commit();
                 break;
             case R.id.nav_logout:
-                intent = new Intent(MainActivity.this, Login.class);        //Go to some second activity
-                startActivity(intent);      //Move to next page
+                intent = new Intent(MainActivity.this, Login.class);
+                startActivity(intent);
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
