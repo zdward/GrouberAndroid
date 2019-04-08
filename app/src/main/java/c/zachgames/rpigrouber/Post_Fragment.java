@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.content.Intent;
+import android.support.design.widget.Snackbar;
 
 
 /**
@@ -28,6 +31,8 @@ public class Post_Fragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private Button Post;
 
     public Post_Fragment() {
         // Required empty public constructor
@@ -58,6 +63,16 @@ public class Post_Fragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+//        Post = (Button)getView().findViewById(R.id.btnPost);
+//
+//        Post.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Snackbar.make(v,"Posted!",Snackbar.LENGTH_LONG).setAction("Action",null).show();
+//
+//            }
+//        });
     }
 
     @Override
