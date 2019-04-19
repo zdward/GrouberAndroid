@@ -7,12 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".Profile_Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="profile"
-        android:layout_centerInParent="true"
-        android:textSize="30sp" />
-
+        android:id="@+id/displayName"
+        android:layout_width="202dp"
+        android:layout_height="67dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="380dp"
+        android:text="NAME GOES HERE"
+        android:textSize="20sp" />
 </RelativeLayout>

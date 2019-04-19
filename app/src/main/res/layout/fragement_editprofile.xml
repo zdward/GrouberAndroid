@@ -1,16 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@android:color/holo_red_dark"
+
     >
 
     <TextView
+        android:id="@+id/editProfileTitle"
+        android:layout_width="183dp"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="480dp"
+        android:text="TextView"
+        android:textSize="32dp"
+        tools:text="Edit Profile" />
+
+    <EditText
+        android:id="@+id/getName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text = "EDIT PROFILE"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
+        android:layout_alignTop="@+id/editProfileTitle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="91dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="400dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
 
-        />
+    <EditText
+        android:id="@+id/getRPIEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editProfileTitle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="161dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="330dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="RPI Email" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/getRPIEmail"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="239dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="89dp"
+        android:text="SAVE" />
+
+    <Button
+        android:id="@+id/uploadImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/getRPIEmail"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="223dp"
+        android:text="Upload An Image" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:text="Common Places, Change Password"
+        android:textSize="32dp" />
 
 </RelativeLayout>
