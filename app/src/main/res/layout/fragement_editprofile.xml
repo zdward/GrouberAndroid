@@ -34,8 +34,8 @@
         android:layout_marginEnd="97dp"
         android:layout_marginBottom="400dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="Name"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/getRPIEmail"
@@ -50,8 +50,8 @@
         android:layout_marginEnd="95dp"
         android:layout_marginBottom="330dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="RPI Email" />
+        android:hint="RPI Email"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/save"
