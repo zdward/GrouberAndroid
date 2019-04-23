@@ -1,16 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@android:color/holo_red_dark"
+    android:background="@android:color/holo_blue_bright"
+
     >
 
     <TextView
+        android:id="@+id/editProfileTitle"
+        android:layout_width="183dp"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="113dp"
+        android:layout_marginBottom="526dp"
+        android:text="Edit Profile"
+        android:textSize="32dp" />
+
+    <EditText
+        android:id="@+id/getName"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_alignTop="@+id/editProfileTitle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="471dp"
+        android:ems="10"
+        android:hint="Edit Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/getRPIEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_alignTop="@+id/editProfileTitle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="115dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="419dp"
+        android:ems="10"
+        android:hint="Change Email"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="69dp"
+        android:layout_alignTop="@+id/getRPIEmail"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="386dp"
+        android:layout_marginEnd="169dp"
+        android:layout_marginBottom="18dp"
+        android:text="SAVE" />
+
+    <Button
+        android:id="@+id/uploadImage"
+        android:layout_width="127dp"
+        android:layout_height="55dp"
+        android:layout_alignTop="@+id/getRPIEmail"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="324dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="95dp"
+        android:text="Upload An Image" />
+
+    <EditText
+        android:id="@+id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text = "EDIT PROFILE"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="172dp"
+        android:layout_marginBottom="369dp"
+        android:ems="10"
+        android:hint="Add a common place"
+        android:inputType="textPersonName" />
 
-        />
+    <TextView
+        android:id="@+id/deletePlaces"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginBottom="314dp"
+        android:text="Delete a Common Place"
+        android:textSize="24dp" />
 
 </RelativeLayout>
