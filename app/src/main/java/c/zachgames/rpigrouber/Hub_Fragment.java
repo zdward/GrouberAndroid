@@ -7,6 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +32,11 @@ public class Hub_Fragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+
+//    ListView listView;
+//    List list = new ArrayList();
+//    ArrayAdapter adapter;
 
     public Hub_Fragment() {
         // Required empty public constructor
@@ -62,8 +72,23 @@ public class Hub_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_hub_,container, false);
+
+        String[] items = {"John","Dennis","Chris","Zach","John","Dennis","Chris","Zach",
+                "John","Dennis","Chris","Zach","John","Dennis","Chris","Zach","John","Dennis","Chris","Zach"};
+
+        ListView listview = (ListView)view.findViewById(R.id.posts);
+
+        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
+            getActivity(),android.R.layout.simple_expandable_list_item_1,items
+        );
+
+
+        listview.setAdapter(listViewAdapter);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hub_, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

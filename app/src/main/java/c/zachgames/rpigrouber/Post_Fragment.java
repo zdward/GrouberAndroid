@@ -7,9 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.content.Intent;
-import android.support.design.widget.Snackbar;
+import android.widget.Spinner;
+
+import static android.support.design.widget.Snackbar.make;
 
 
 /**
@@ -59,27 +61,60 @@ public class Post_Fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-//        Post = (Button)getView().findViewById(R.id.btnPost);
-//
-//        Post.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Snackbar.make(v,"Posted!",Snackbar.LENGTH_LONG).setAction("Action",null).show();
-//
-//            }
-//        });
+
+
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_post_, container, false);
+
+        View v = inflater.inflate(R.layout.fragment_post_, container, false);
+
+        String [] values =
+                {"1","2","3","4","5","6"};
+        Spinner spinner = (Spinner) v.findViewById(R.id.spinner1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, values);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+
+
+
+        String [] hours =
+                {"00","01","02","03","04","05","06","07","08","09","10","11","12"};
+        Spinner h_spinner = (Spinner) v.findViewById(R.id.hour);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, hours);
+        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        h_spinner.setAdapter(adapter2);
+
+
+        String [] minutes =
+                {"00","01","02","03","04","05","06","07","08","09","10","11","12",
+                        "13","14","15","16","17","18","19","20","21","22","23","24","25",
+                        "26","27","28","29","30","31","32","33","34","35","36","37","38",
+                        "39","40","41","42","43","44","45","46","47","48","49","50","51",
+                        "52","53","54","55","56","57","58","59",};
+        Spinner m_spinner = (Spinner) v.findViewById(R.id.minute);
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, minutes);
+        adapter3.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        m_spinner.setAdapter(adapter3);
+
+        String [] pm =
+                {"AM","PM"};
+        Spinner p_spinner = (Spinner) v.findViewById(R.id.am);
+        ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, pm);
+        adapter4.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        p_spinner.setAdapter(adapter4);
+
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
